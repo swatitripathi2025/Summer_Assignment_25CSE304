@@ -1,119 +1,100 @@
 #include <stdio.h>
 
-int palindrome(int n)
+int sum(int a, int b)
 {
-    int rev = 0, temp = n;
-
-    while(temp != 0)
-    {
-        rev = rev * 10 + temp % 10;
-        temp /= 10;
-    }
-
-    return rev == n;
+    return a + b;
 }
 
 int main()
 {
-    int n;
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
 
-    printf("Enter number: ");
-    scanf("%d", &n);
+    printf("Sum = %d", sum(a, b));
 
-    if(palindrome(n))
-        printf("Palindrome");
+    return 0;
+}
+
+
+#include<stdio.h>
+
+int maximum(int a, int b)
+{
+    if(a > b)
+        return a;
     else
-        printf("Not Palindrome");
-
-    return 0;
-}
-
-#include <stdio.h>
-
-int armstrong(int n)
-{
-    int sum = 0, temp = n, rem;
-
-    while(temp != 0)
-    {
-        rem = temp % 10;
-        sum += rem * rem * rem;
-        temp /= 10;
-    }
-
-    return sum == n;
+        return b;
 }
 
 int main()
 {
-    int n;
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
 
-    printf("Enter number: ");
-    scanf("%d", &n);
-
-    if(armstrong(n))
-        printf("Armstrong Number");
-    else
-        printf("Not Armstrong Number");
+    printf("Maximum = %d", maximum(a, b));
 
     return 0;
 }
 
-#include <stdio.h>
-
-void fibonacci(int n)
-{
-    int a = 0, b = 1, c, i;
-
-    printf("%d %d ", a, b);
-
-    for(i = 3; i <= n; i++)
-    {
-        c = a + b;
-        printf("%d ", c);
-        a = b;
-        b = c;
-    }
-}
-
-int main()
-{
-    int n;
-
-    printf("Enter terms: ");
-    scanf("%d", &n);
-
-    fibonacci(n);
-
-    return 0;
-}
 
 #include <stdio.h>
 
-int perfect(int n)
-{
-    int i, sum = 0;
 
-    for(i = 1; i < n; i++)
+#include <stdio.h>
+
+int prime(int n)
+{
+    int i;
+
+    if(n <= 1)
+        return 0;
+
+    for(i = 2; i <= n/2; i++)
     {
         if(n % i == 0)
-            sum += i;
+            return 0;
     }
-
-    return sum == n;
+    return 1;
 }
 
 int main()
 {
     int n;
 
-    printf("Enter number: ");
+    printf("Enter a number: ");
     scanf("%d", &n);
 
-    if(perfect(n))
-        printf("Perfect Number");
+    if(prime(n))
+        printf("Prime Number");
     else
-        printf("Not Perfect Number");
+        printf("Not Prime Number");
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int factorial(int n)
+{
+    int i, fact = 1;
+
+    for(i = 1; i <= n; i++)
+        fact *= i;
+
+    return fact;
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Factorial = %d", factorial(n));
 
     return 0;
 }
